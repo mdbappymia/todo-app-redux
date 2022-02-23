@@ -7,7 +7,7 @@ import Todos from "./components/Todos/Todos";
 
 const App = () => {
   const dispatch = useDispatch();
-  const count = useSelector((state) => state.count);
+  const count = useSelector((state) => state.counter_reducer.count);
 
   return (
     <div className="App">

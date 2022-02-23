@@ -10,8 +10,8 @@ import {
 
 const Todos = () => {
   const dispatch = useDispatch();
-  const todoText = useSelector((state) => state.todoText);
-  const todos = useSelector((state) => state.todos);
+  const todoText = useSelector((state) => state.todo_reducer.todoText);
+  const todos = useSelector((state) => state.todo_reducer.todos);
 
   return (
     <div>
@@ -23,7 +23,7 @@ const Todos = () => {
       <button onClick={() => dispatch(addToTodos(todoText))}>Add todo</button>
       <div>
         <h1>All todos</h1>
-        {todos.map((todo, i) => (
+        {todos?.map((todo, i) => (
           <li key={i}>
             <input
               checked={todo.complete}
@@ -36,7 +36,12 @@ const Todos = () => {
               name=""
               id=""
             />
-            <span style={{ color: todo.complete ? "green" : "red" }}>
+            <span
+              style={{
+                color: todo.complete ? "green" : "red",
+                fontWeight: todo.complete && "bold",
+              }}
+            >
               {todo.todo}
             </span>
             {/* <button
