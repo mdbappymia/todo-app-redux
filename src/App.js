@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { decrement, increment } from "./redux/actions/counterAction";
 import Todos from "./components/Todos/Todos";
+import Posts from "./components/Posts/Posts";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,8 @@ const App = () => {
         <button onClick={() => dispatch(increment(1))}>Increment</button>
       </div>
       <Todos />
+      <h1>Posts</h1>
+      <Posts />
     </div>
   );
 };
